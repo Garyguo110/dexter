@@ -14,8 +14,24 @@ def turnOffMotors():
     rightMotor.run(Adafruit_MotorHAT.RELEASE)
 
 
-def forward():
-    leftMotor.run(Adafruit_MotorHAT.FORWARD)
-    rightMotor.run(Adafruit_MotorHAT.FORWARD)
-    time.sleep(1)
+def move(l_direction, r_direction):
+    leftMotor.run(l_direction)
+    rightMotor.run(r_direction)
+    time.sleep(5)
     turnOffMotors()
+
+
+def forward():
+    move(Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.FORWARD)
+
+
+def backwards():
+    move(Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.BACKWARD)
+
+
+def left():
+    move(Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.FORWARD)
+
+
+def right():
+    move(Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.BACKWARD)
