@@ -5,33 +5,33 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 mh = Adafruit_MotorHAT(addr=0x60)
 leftMotor = mh.getMotor(4)
 rightMotor = mh.getMotor(3)
-leftMotor.setSpeed(50)
-rightMotor.setSpeed(50)
 
 
-def stop():
+def s():
     leftMotor.run(Adafruit_MotorHAT.RELEASE)
     rightMotor.run(Adafruit_MotorHAT.RELEASE)
 
 
-def move(l_direction, r_direction):
+def move(l_direction, r_direction, duration):
+    leftMotor.setSpeed(70)
+    rightMotor.setSpeed(70)
     leftMotor.run(l_direction)
     rightMotor.run(r_direction)
-    time.sleep(5)
-    stop()
+    time.sleep(duration)
+    s()
 
 
-def forward():
-    move(Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.FORWARD)
+def f(duration=5):
+    move(Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.FORWARD, duration)
 
 
-def backwards():
-    move(Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.BACKWARD)
+def b(duration=5):
+    move(Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.BACKWARD, duration)
 
 
-def left():
-    move(Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.FORWARD)
+def l(duration=5):
+    move(Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.FORWARD, duration)
 
 
-def right():
-    move(Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.BACKWARD)
+def r(duration=5):
+    move(Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.BACKWARD, duration)
