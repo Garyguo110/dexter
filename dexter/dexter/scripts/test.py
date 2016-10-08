@@ -5,6 +5,8 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 mh = Adafruit_MotorHAT(addr=0x60)
 leftMotor = mh.getMotor(4)
 rightMotor = mh.getMotor(3)
+leftMotor.setSpeed(70)
+rightMotor.setSpeed(70)
 
 
 def s():
@@ -13,8 +15,6 @@ def s():
 
 
 def move(l_direction, r_direction, duration):
-    leftMotor.setSpeed(70)
-    rightMotor.setSpeed(70)
     leftMotor.run(l_direction)
     rightMotor.run(r_direction)
     time.sleep(duration)
